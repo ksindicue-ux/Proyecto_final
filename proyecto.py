@@ -1,5 +1,4 @@
 import random
-
 def cargar_participantes():
 
     participantes = []
@@ -98,4 +97,5 @@ def simular_torneo(participantes):
     return simular_torneo(ganadores)
 
 participantes = []
+
 
