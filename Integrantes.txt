@@ -1,0 +1,7 @@
+CHAVEZ LAUREAN, JONATHAN CHAVEZ - jchavezl@unal.edu.co
+SINDICUE RODRIGUEZ, KEVIN ANDRES - ksindicue@unal.edu.co
+SANTIAGO ALEJANDRO LOPEZ ARANGO - sanlopez@unal.edu.co
+
+Simulador de torneo
+
+El proyecto consiste en desarrollar un simulador de torneo por eliminación directa que funcione por consola. La idea es que el programa lea los participantes desde un archivo de texto, organice los enfrentamientos y simule cada ronda hasta determinar un campeón para posteriormente guardar el resultado del torneo en un archivo externo. La interacción se realizará mediante un menú debe permitir visualizar los participantes, las llaves del torneo y los resultados de cada enfrentamiento. Además, se utilizarán matrices para gestionar la información de los competidores, una función recursiva para avanzar entre rondas y archivos de texto para almacenar el historial de campeones. 
