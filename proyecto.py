@@ -57,6 +57,16 @@ def guardar_historial(campeon):
 
         archivo.write(f"Campeón: {campeon}\n")
 
+def es_potencia_de_dos(n):
+
+    if n <= 0:
+        return False
+
+    while n % 2 == 0:
+        n = n // 2
+
+    return n == 1
+
 def simular_torneo(participantes):
 
     if len(participantes) == 1:
@@ -127,9 +137,9 @@ while True:
         if len(participantes) == 0:
 
             print("\nPrimero cargue los participantes.\n")
-
+        elif not es_potencia_de_dos(len(participantes)):
+            print("\nEl número de participantes no es una potencia de 2.\n")
         else:
-
             simular_torneo(participantes)
 
     elif opcion == "4":

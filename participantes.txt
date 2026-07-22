@@ -1,8 +1,4 @@
 Juan
 Pedro
-Ana
 Maria
-Luis
-Carlos
-Diego
-Sofia
+Kike
