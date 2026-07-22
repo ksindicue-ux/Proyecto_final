@@ -10,7 +10,7 @@ def mostrar_menu():
     print("4. Salir")
 
     opcion = input("Elige una opcion: ")
-    while opcion != "1" and opcion != "2" and opcion != "3" and opcion != "4":
+    while opcion != "3" and opcion != "2" and opcion != "1" and opcion != "4":
         print("opcion invalida, intenta de nuevo")
         opcion = input("Elige una opcion: ")
 
@@ -19,8 +19,3 @@ def mostrar_menu():
 
 def pausar():
     input("\npresiona enter para continuar...")
-
-
-if __name__ == "__main__":
-    opcion = mostrar_menu()
-    print("Elegiste la opcion:", opcion)
