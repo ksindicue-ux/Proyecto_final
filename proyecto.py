@@ -61,10 +61,10 @@ def simular_torneo(participantes):
 
     if len(participantes) == 1:
 
-        print("\n==============================")
+        print("\n================================")
         print("CAMPEÓN DEL TORNEO")
         print(participantes[0])
-        print("==============================\n")
+        print("================================\n")
 
         guardar_historial(participantes[0])
 
@@ -72,30 +72,105 @@ def simular_torneo(participantes):
 
     enfrentamientos = generar_enfrentamientos(participantes)
 
-    print("\n===== ENFRENTAMIENTOS =====")
-
-    for i, duelo in enumerate(enfrentamientos, start=1):
-
-        print(f"Partido {i}: {duelo[0]} VS {duelo[1]}")
-
-    print()
-
     ganadores = []
 
-    print("===== RESULTADOS =====")
+    print("\n===== ENFRENTAMIENTOS =====")
+
+    for duelo in enfrentamientos:
+
+        print(duelo[0], "VS", duelo[1])
+
+    print("\n===== RESULTADOS =====")
 
     for duelo in enfrentamientos:
 
         ganador = random.choice(duelo)
 
-        print(f"{duelo[0]} VS {duelo[1]} -> Gana {ganador}")
+        print(duelo[0], "VS", duelo[1], "-> Gana", ganador)
 
         ganadores.append(ganador)
 
-    print()
+    if len(participantes) % 2 != 0:
+
+        ultimo = participantes[-1]
+
+        print("\n", ultimo, "pasa automáticamente a la siguiente ronda.\n")
+
+        ganadores.append(ultimo)
 
     return simular_torneo(ganadores)
 
 participantes = []
+while True:
 
+    print("===================================")
+    print("     SIMULADOR DE TORNEOS")
+    print("===================================")
+    print("1. Cargar participantes")
+    print("2. Mostrar participantes")
+    print("3. Simular torneo")
+    print("4. Ver historial")
+    print("5. Salir")
+
+    opcion = input("\nSeleccione una opción: ")
+
+    if opcion == "1":
+
+        participantes = cargar_participantes()
+
+    elif opcion == "2":
+
+        mostrar_participantes(participantes)
+
+    elif opcion == "3":
+
+        if len(participantes) == 0:
+
+            print("\nPrimero cargue los participantes.\n")
+
+        else:
+
+            simular_torneo(participantes)
+
+    elif opcion == "4":
+
+        try:
+
+            archivo = open("historial.txt", "r")
+
+            print("\n===== HISTORIAL DE CAMPEONES =====\n")
+
+            contenido = archivo.readlines()
+
+            if len(contenido) == 0:
+
+                print("Todavía no hay campeones registrados.")
+
+            else:
+
+                contador = 1
+
+                for linea in contenido:
+
+                    print(contador, "-", linea.strip())
+
+                    contador += 1
+
+            archivo.close()
+
+            print()
+
+        except FileNotFoundError:
+
+            print("\nTodavía no existe el historial.\n")
+
+    elif opcion == "5":
+
+        print("\nGracias por utilizar el programa.")
+
+        break
+
+    else:
+
+        print("\nOpción inválida.\n")
 
